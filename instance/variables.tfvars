@@ -10,10 +10,10 @@ os_auth = "http://10.200.100.200:5000/v3"
 
 # openstack virtual machine related vars
 instance_securitygroup = ["sg-standard"]
-instance_keypair = "ansible-ssh"
-instance_flavor = "m1.large"
-instance_image = "ubuntu-bionic"
-instance_name = "testing"
+instance_keypair       = "ansible-ssh"
+instance_flavor        = "m1.large"
+instance_image         = "ubuntu-bionic"
+instance_name          = "testing"
 
 # openstack external network
 floatip_pool = "external"
