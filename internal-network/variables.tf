@@ -26,14 +26,6 @@ variable "network_name" {
   type = string
 }
 
-variable "network_type" {
-  type = string
-}
-
-variable "network_physical" {
-  type = string
-}
-
 variable "subnet_name" {
   type = string
 }

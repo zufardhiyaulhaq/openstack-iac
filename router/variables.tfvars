@@ -8,7 +8,6 @@ os_region = "RegionOne"
 
 os_auth = "http://10.200.100.200:5000/v3"
 
-# openstack image related vars
-image_name = "ubuntu-1804"
-image_path = "bionic-server-cloudimg-amd64.img"
-
+# openstack router related vars
+router_name         = "router"
+external_network_id = "4096"

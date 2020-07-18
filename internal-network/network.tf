@@ -1,12 +1,7 @@
 resource "openstack_networking_network_v2" "network" {
   name           = var.network_name
   admin_state_up = "true"
-  external       = true
-
-  segments {
-    physical_network = var.network_physical
-    network_type     = var.network_type
-  }
+  external       = false
 }
 
 resource "openstack_networking_subnet_v2" "subnet" {
