@@ -9,17 +9,17 @@ os_region = "RegionOne"
 os_auth = "http://10.200.100.200:5000/v3"
 
 # openstack virtual machine related vars
-instance_securitygroup = ["sg-standard"]
-instance_keypair       = "ansible-ssh"
-instance_flavor        = "m1.large"
-instance_image         = "ubuntu-bionic"
-instance_name          = "testing"
+instance_securitygroup = ["sg-public"]
+instance_keypair       = "admin_key"
+instance_flavor        = "m1.medium"
+instance_image         = "ubuntu-1804"
+instance_name          = "ubuntu-1804"
 
 # openstack external network
-floatip_pool = "external"
+floatip_pool = "external-network"
 
 # openstack internal network
-instance_network = "internal"
+instance_network = "internal-network"
 
 # openstack zone
 instance_zone = "nova"
