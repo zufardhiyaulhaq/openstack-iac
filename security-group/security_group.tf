@@ -4,7 +4,7 @@ resource "openstack_networking_secgroup_v2" "secgroup" {
   delete_default_rules = var.secgroup_delete_default_rule
 }
 
-resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_tcp" {
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_tcp_ingress" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
@@ -12,7 +12,7 @@ resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_tcp" {
   security_group_id = "${openstack_networking_secgroup_v2.secgroup.id}"
 }
 
-resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_udp" {
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_udp_ingress" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "udp"
@@ -20,8 +20,32 @@ resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_udp" {
   security_group_id = "${openstack_networking_secgroup_v2.secgroup.id}"
 }
 
-resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_icmp" {
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_icmp_ingress" {
   direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "icmp"
+  remote_ip_prefix  = "0.0.0.0/0"
+  security_group_id = "${openstack_networking_secgroup_v2.secgroup.id}"
+}
+
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_tcp_egress" {
+  direction         = "egress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  remote_ip_prefix  = "0.0.0.0/0"
+  security_group_id = "${openstack_networking_secgroup_v2.secgroup.id}"
+}
+
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_udp_egress" {
+  direction         = "egress"
+  ethertype         = "IPv4"
+  protocol          = "udp"
+  remote_ip_prefix  = "0.0.0.0/0"
+  security_group_id = "${openstack_networking_secgroup_v2.secgroup.id}"
+}
+
+resource "openstack_networking_secgroup_rule_v2" "secgroup_rule_allow_icmp_egress" {
+  direction         = "egress"
   ethertype         = "IPv4"
   protocol          = "icmp"
   remote_ip_prefix  = "0.0.0.0/0"
